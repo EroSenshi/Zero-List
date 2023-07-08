@@ -6,21 +6,21 @@ if (isset($_POST['nombre']) && isset($_POST['usuario']) && isset($_POST['passwor
     $unique_user = $_POST['usuario'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
-    // checa que el usuario no exista
+    // check if unique user exists
     $sql = "SELECT * FROM usuarios WHERE usuario='$unique_user'";
     $result = mysqli_query($conn, $sql);
-    // Si el usuario existe da este mensaje de error
+    // if user exists, display error message
     if (mysqli_num_rows($result) > 0) {
         echo '<p>Error: This user already exists.</p>';
     } else {
-        // checa que las contraseñas sean iguales
+        // check if passwords match
         if ($password != $confirm_password) {
             echo '<p>Error: Passwords do not match.</p>';
         } else {
-            // Inserta los datos a la bd
+            // insert user into database
             $sql = "INSERT INTO usuarios (nombre, usuario, password, tipoDeUsuario) VALUES ('$username', '$unique_user', '$password', 1)";
             mysqli_query($conn, $sql);
-            // redirecciona a el index
+            // redirect to index.html
             header('Location: ../index.html');
         }
     }

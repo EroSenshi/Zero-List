@@ -1,5 +1,9 @@
 <?php
     include 'conexion.php';
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header('Location: ../index.html');
+    }
     if (isset($_POST['nombre'])){
         $nombre=$_POST['nombre'];
         //consulta sql para grabar el curso en la base de datos
