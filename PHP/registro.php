@@ -21,7 +21,7 @@ if (isset($_POST['nombre']) && isset($_POST['usuario']) && isset($_POST['passwor
             $sql = "INSERT INTO usuarios (nombre, usuario, password, tipoDeUsuario) VALUES ('$username', '$unique_user', '$password', 1)";
             mysqli_query($conn, $sql);
             // redirect to index.html
-            header('Location: index.html');
+            header('Location: ../index.html');
         }
     }
     // close connection

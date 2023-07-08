@@ -10,7 +10,7 @@
     include 'conexion.php';
     session_start();
     if (!isset($_SESSION['username'])) {
-        header('Location: login.php');
+        header('Location: ../index.html');
     }
     $sql = "SELECT * FROM curso";
     $result = mysqli_query($conn, $sql);
