@@ -3,7 +3,7 @@
     if (isset($_POST['nombre'])){
         $nombre=$_POST['nombre'];
         //consulta sql para grabar el curso en la base de datos
-        $sql="INSERT INTO curso (nombre) VALUES ('$nombre')";
+        $sql="INSERT INTO curso (nombreCurso) VALUES ('$nombre')";
         $result=mysqli_query($conn, $sql);
         //redireccion a la pagina del panel
         header('Location: panel.php');
