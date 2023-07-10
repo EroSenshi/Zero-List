@@ -4,6 +4,7 @@ session_start();
 if (isset($_POST['nombre']) && isset($_POST['usuario']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
     $username = $_POST['nombre'];
     $unique_user = $_POST['usuario'];
+    $userType = intval($_POST['userType']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
