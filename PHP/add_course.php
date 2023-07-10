@@ -6,6 +6,7 @@
     }
     if (isset($_POST['nombre'])){
         $nombre=$_POST['nombre'];
+        $nombre = mysqli_real_escape_string($conn, $nombre);
         //consulta sql para grabar el curso en la base de datos
         $sql="INSERT INTO curso (nombreCurso) VALUES ('$nombre')";
         $result=mysqli_query($conn, $sql);
