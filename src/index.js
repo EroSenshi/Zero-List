@@ -22,7 +22,7 @@ app.use(express.json());
 const uri = 'mongodb://localhost:27017';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.post('/login', async (req, res) => {
+app.post('../index.html', async (req, res) => {
   const { username, password } = req.body;
 
   try {
