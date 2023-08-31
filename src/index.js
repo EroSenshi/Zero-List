@@ -1,33 +1,16 @@
 const express = require('express');
 const session = require('express-session');
-const MongoClient = require('mongodb').MongoClient;
 const bcrypt = require('bcrypt');
+const db = require('./db'); // Importar la referencia a la base de datos desde db.js
 const app = express();
 const port = 3000;
-const axios = require('axios'); // Importar la biblioteca Axios
 
-// Configurar sesión
-app.use(
-  session({
-    secret: 'your-secret-key',
-    resave: true,
-    saveUninitialized: true
-  })
-);
+// Resto del código
 
-// Agregar middleware para procesar el cuerpo de la solicitud en formato JSON
-app.use(express.json());
-
-// Conexión a la base de datos MongoDB
-const uri = 'mongodb://localhost:27017';
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-app.post('../index.html', async (req, res) => {
+app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    await client.connect();
-    const db = client.db('your_database_name');
     const usersCollection = db.collection('usuarios');
 
     const user = await usersCollection.findOne({ usuario: username });
@@ -41,7 +24,7 @@ app.post('../index.html', async (req, res) => {
         req.session.logged_in = true;
 
         setTimeout(() => {
-          res.redirect('/panel');
+          res.redirect('/panel'); // Cambia a la ruta correcta
         }, 5000);
       } else {
         res.send('<p>Error: Nombre de usuario o contraseña incorrectos.</p>');
@@ -52,10 +35,10 @@ app.post('../index.html', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.send('Hubo un error en el servidor.');
-  } finally {
-    await client.close();
   }
 });
+
+// Resto del código
 
 app.listen(port, () => {
   console.log(`Servidor en ejecución en http://localhost:${port}`);
