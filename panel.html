@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../CSS/style2.css">
+    <link rel="icon" href="../miweb/logo.ico">
+
+    <title>Cursos</title>
+</head>
+<header>
+    <img src="../miweb/img.ico">
+    <h1>Zero-List</h1>
+    
+    <form id="right" action="logout.php" method="post">
+        <input class="button" type="submit" value="Cerrar Sesion">
+    </form>
+
+    <div id="mid">
+        <button class="button" id="agregar-curso">Agregar curso</button>
+        <button class="button" id="editar-curso">Editar curso</button>
+        <button class="button" id="eliminar-curso">Eliminar curso</button>
+    </div>
+</header>
+<body>
+    <div id="cursos-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="cursos.js"></script>
+</body>
+<footer>
+    <div id="contac">
+        <a href="mailto:damzerotec@gmail.com" target="_blank">Contactarme</a>
+    </div>
+    <p>
+        Copyright 2023 By Zero-Software ©
+    </p>
+</footer>
+</html>
