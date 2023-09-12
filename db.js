@@ -1,21 +1,12 @@
-const MongoClient = require('mongodb').MongoClient;
+const mysql = require('mysql2');
 
-const uri = 'mongodb://localhost:27017';
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const dbConfig = {
+  host: 'localhost',
+  user: 'tu_usuario_de_mysql',
+  password: 'tu_contraseña_de_mysql',
+  database: 'tu_base_de_datos_mysql'
+};
 
-let db; // Variable para almacenar la referencia a la base de datos
+const pool = mysql.createPool(dbConfig);
 
-async function connectDB() {
-  try {
-    await client.connect();
-    db = client.db('id19887576_asistencia');
-    console.log('Conexión exitosa a la base de datos');
-  } catch (error) {
-    console.error('Error al conectar a la base de datos:', error);
-  }
-}
-
-// Llamar a la función para establecer la conexión
-connectDB();
-
-module.exports = db; // Exportar la referencia a la base de datos
+module.exports = pool.promise();
