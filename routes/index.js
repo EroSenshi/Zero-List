@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const db = require('../db'); // Importar la referencia a la base de datos MySQL desde db.js
+const db = require('../config/db'); // Importar la referencia a la base de datos MySQL desde db.js
 const path = require('path'); // Importar el módulo 'path' para manejar rutas de archivos
 const router = express.Router();
 

@@ -1,63 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="CSS\style.css">
-  <link rel="icon" href="miweb\logo.ico">
-
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="icon" href="../img/logo.ico">
   <title>Registro</title>
-
 </head>
 <header>
-
-  <img src="miweb\img.ico" alt="">
-  <h1> Zero-List </h1>
-  <button id="right" class="button" onclick="window.location.href='index.html'">Iniciar Sesion</button>
-  
+  <img src="../img/img.ico">
+  <h1>Zero-List</h1>
+  <button id="right" class="button" onclick="window.location.href='index.html'">Iniciar Sesión</button>
 </header>
 <body style="zoom: 81%;">
-
   <section class="container">
-
     <article>
-
       <h3 class="card_title">Registro</h3>
-
-      <form action="/PHP/registro.php" method="post">
-
+      <form id="registro-form" action="/registro" method="post">
         <input type="text" name="nombre" placeholder="Nombre" required>
         <input type="text" name="usuario" placeholder="Usuario" required>
-        <!-- <select name="userType" id="">
-          <option value="admin">Profesor</option>
-          <option value="student">Estudiante</option>
-        </select> -->
         <input type="password" name="password" placeholder="Contraseña" required>
         <input type="password" name="confirm_password" placeholder="Confirmar contraseña" required>
         <input class="button" type="submit" value="Registrarse">
-
       </form>
-
     </article>
-
   </section>
-
 </body>
 <footer>
-
   <div id="contac">
-
     <a href="mailto:damzerotec@gmail.com" target="_blank">Contactarme</a>
-
   </div>
-
   <p>
-
     Copyright 2023 By Zero-Software ©
-
   </p>
-
 </footer>
+<script src="../scripts/registroModulo.js"></script>
 </html>

@@ -13,24 +13,20 @@ app.use(session({
   saveUninitialized: true
 }));
 
+// Configura el middleware para servir archivos estáticos desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
 const indexRouter = require('./routes/index');
+const registroRouter = require('./routes/registro'); // Importa el enrutador registro.js
+const panelRouter = require('./routes/panel');
+
 app.use('/', indexRouter);
+app.use('/registro', registroRouter); // Usa el enrutador registro.js para las rutas relacionadas con el registro
+app.use('/panel', panelRouter);
 
 // Redirige desde la raíz a /login
 app.get('/', (req, res) => {
   res.redirect('/login');
-});
-
-app.use('/panel', (req, res, next) => {
-  if (req.session.logged_in) {
-    const panelRouter = require('./routes/panel');
-    app.use('/panel', panelRouter);
-    next();
-  } else {
-    res.redirect('/');
-  }
 });
 
 // Resto del código

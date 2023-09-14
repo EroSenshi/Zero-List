@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../db'); // Importar la referencia a la base de datos desde db.js
+const db = require('../config/db'); // Importar la referencia a la base de datos desde db.js
 const app = express();
 const axios = require('axios');
 

@@ -1,33 +1,28 @@
 const express = require('express');
-const session = require('express-session');
 const bcrypt = require('bcrypt');
-const db = require('./db'); // Importar la referencia a la base de datos desde db.js
-const app = express();
-const port = 3000;
+const db = require('../config/db'); // Importa la referencia a la base de datos desde db.js
+const router = express.Router();
 
-// Resto del código
+// Middleware para parsear datos del formulario
+router.use(express.urlencoded({ extended: true }));
 
-app.post('/registro', async (req, res) => {
+// Ruta POST para procesar el registro de usuarios
+router.post('/registro', async (req, res) => {
   const { nombre, usuario, password, confirm_password } = req.body;
 
   try {
-    const usersCollection = db.collection('usuarios');
+    const connection = db; // Usa la conexión importada desde db.js
 
-    const existingUser = await usersCollection.findOne({ usuario });
+    const [existingUser] = await connection.execute('SELECT * FROM usuarios WHERE nombreDeUsuario = ?', [usuario]);
 
-    if (existingUser) {
+    if (existingUser.length > 0) {
       res.send('<p>Error: El usuario ya existe, elija otro.</p>');
     } else if (password !== confirm_password) {
       res.send('<p>Error: Las contraseñas no coinciden.</p>');
     } else {
-      const hashedPassword = await bcrypt.hash(password, 10); // Salting con factor de trabajo 10
+      const hashedPassword = await bcrypt.hash(password, 10);
 
-      await usersCollection.insertOne({
-        nombre,
-        usuario,
-        password: hashedPassword,
-        tipoDeUsuario: 1
-      });
+      await connection.execute('INSERT INTO usuarios (nombreDeUsuario, tipoDeUsuario, nombre, contraseña) VALUES (?, ?, ?, ?)', [usuario, '1', nombre, hashedPassword]);
 
       res.redirect('/index.html'); // Cambia a la ruta correcta
     }
@@ -37,8 +32,4 @@ app.post('/registro', async (req, res) => {
   }
 });
 
-// Resto del código
-
-app.listen(port, () => {
-  console.log(`Servidor en ejecución en http://localhost:${port}`);
-});
+module.exports = router;
