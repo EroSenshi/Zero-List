@@ -9,23 +9,19 @@
   <script src="../scripts/loginModulo.js"></script>
 </head>
 <header>
-
   <img src="../img/img.ico">
   <h1> Zero-List </h1>
-  <button id="right" class="button" onclick="window.location.href='/registro'">Registrarse</button>
-
-
-
+  <!-- Corregido el botón para que redireccione a /registro.html -->
+  <button id="right" class="button" onclick="window.location.href='/registro.html'">Registrarse</button>
 </header>
 <section class="container">
   <article>
-  <h3 class="caed_title"> Iniciar Sesion </h3>
-
-  <form id="login-form" action="/login" method="post"> <!-- Cambiado el método a "post" -->
-    <input type="text" id="username" name="username" placeholder="Nombre de usuario" required>
-    <input type="password" id="password" name="password" placeholder="Contraseña" required>
-    <input class="button" type="submit" value="Ingresar">
-  </form>
+    <h3 class="card_title"> Iniciar Sesión </h3>
+    <form id="login-form" action="/login" method="post"> <!-- Cambiado el método a "post" -->
+      <input type="text" id="username" name="username" placeholder="Nombre de usuario" required>
+      <input type="password" id="password" name="password" placeholder="Contraseña" required>
+      <input class="button" type="submit" value="Ingresar">
+    </form>
   </article>
 </section>
 </body>

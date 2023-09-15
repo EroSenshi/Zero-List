@@ -1,11 +1,10 @@
 // registroModulo.js
-
 import axios from 'axios';
 
 // Función para registrar un usuario
 async function registrarUsuario(nombre, usuario, password, confirm_password) {
   try {
-    const response = await axios.post('/PHP/registro.php', {
+    const response = await axios.post('/registro', {  // Cambia la URL a '/registro'
       nombre,
       usuario,
       password,

@@ -17,19 +17,12 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 const indexRouter = require('./routes/index');
-const registroRouter = require('./routes/registro'); // Importa el enrutador registro.js
+const registroRouter = require('./routes/registro');
 const panelRouter = require('./routes/panel');
 
 app.use('/', indexRouter);
-app.use('/registro', registroRouter); // Usa el enrutador registro.js para las rutas relacionadas con el registro
+app.use('/registro', registroRouter);
 app.use('/panel', panelRouter);
-
-// Redirige desde la raíz a /login
-app.get('/', (req, res) => {
-  res.redirect('/login');
-});
-
-// Resto del código
 
 app.listen(port, () => {
   console.log(`Servidor en ejecución en http://localhost:${port}`);

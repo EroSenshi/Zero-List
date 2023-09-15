@@ -7,7 +7,7 @@ const router = express.Router();
 router.use(express.urlencoded({ extended: true }));
 
 // Ruta POST para procesar el registro de usuarios
-router.post('/registro', async (req, res) => {
+router.post('../public/views/registro.html', async (req, res) => { // Cambiado el manejador de ruta a /registro.html
   const { nombre, usuario, password, confirm_password } = req.body;
 
   try {
