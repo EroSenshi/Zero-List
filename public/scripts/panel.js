@@ -67,17 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const deleteCourseButton = document.getElementById('deleteCourse');
                 const enterCourseButton = document.getElementById('enterCourse');
 
-                if (tipoDeUsuario === 0) { // Usuario tipo 0 (profesor/preceptor)
+                if (tipoDeUsuario == 0) { // Usuario tipo 0 (profesor/preceptor)
                     addCourseButton.style.display = 'block';
                     editCourseButton.style.display = 'block';
                     deleteCourseButton.style.display = 'block';
-                    enterCourseButton.style.display = 'none'; // Oculta el botón "Entrar a curso" para tipo 0
-                } else if (tipoDeUsuario === 1) { // Usuario tipo 1 (alumno)
+                    enterCourseButton.style.display = 'block'; // Oculta el botón "Entrar a curso" para tipo 0
+                } else if (tipoDeUsuario == 1) { // Usuario tipo 1 (alumno)
                     addCourseButton.style.display = 'none';
                     editCourseButton.style.display = 'none';
                     deleteCourseButton.style.display = 'none';
                     enterCourseButton.style.display = 'block'; // Muestra solo el botón "Entrar a curso" para tipo 1
                 }
+                console.log(tipoDeUsuario);
             })
             .catch(error => {
                 console.error('Error al obtener el tipo de usuario:', error);

@@ -34,7 +34,8 @@ app.use('/usuario', usuarioRoutes); // Asignar una ruta base para las rutas de u
 
 // Ruta de inicio (puede ser una página de bienvenida)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  // Redirige a la página de inicio de sesión
+  res.redirect('/auth/inicio-sesion');
 });
 
 // Ruta del panel
