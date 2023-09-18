@@ -32,4 +32,58 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error al cargar cursos:', error);
             });
     }
+
+    //cerrar sesion
+    const cerrarSesionButton = document.getElementById('cerrar-sesion-button');
+
+    cerrarSesionButton.addEventListener('click', () => {
+        // Realiza una solicitud al servidor para cerrar la sesión del usuario
+        fetch('/auth/cerrar-sesion', {
+            method: 'GET',
+        })
+            .then((response) => response.text())
+            .then((data) => {
+                if (data === 'Sesión cerrada exitosamente') {
+                    // Redirige al usuario al inicio de sesión
+                    window.location.href = '/auth/inicio-sesion';
+                } else {
+                    console.error('Error al cerrar sesión');
+                }
+            })
+            .catch((error) => {
+                console.error('Error al cerrar sesión:', error);
+            });
+    });
+
+    // Función para obtener el tipo de usuario y configurar los botones
+    function obtenerTipoDeUsuario() {
+        // Realiza una solicitud al servidor para obtener el tipo de usuario
+        axios.get('/usuario/tipo-usuario') // Utiliza la ruta definida en tu servidor Node.js
+            .then(response => {
+                const tipoDeUsuario = response.data.tipoDeUsuario;
+                // Lógica para mostrar u ocultar botones según el tipo de usuario
+                const addCourseButton = document.getElementById('addCourse');
+                const editCourseButton = document.getElementById('editCourse');
+                const deleteCourseButton = document.getElementById('deleteCourse');
+                const enterCourseButton = document.getElementById('enterCourse');
+
+                if (tipoDeUsuario === 0) { // Usuario tipo 0 (profesor/preceptor)
+                    addCourseButton.style.display = 'block';
+                    editCourseButton.style.display = 'block';
+                    deleteCourseButton.style.display = 'block';
+                    enterCourseButton.style.display = 'none'; // Oculta el botón "Entrar a curso" para tipo 0
+                } else if (tipoDeUsuario === 1) { // Usuario tipo 1 (alumno)
+                    addCourseButton.style.display = 'none';
+                    editCourseButton.style.display = 'none';
+                    deleteCourseButton.style.display = 'none';
+                    enterCourseButton.style.display = 'block'; // Muestra solo el botón "Entrar a curso" para tipo 1
+                }
+            })
+            .catch(error => {
+                console.error('Error al obtener el tipo de usuario:', error);
+            });
+    }
+
+    // Obtener y configurar el tipo de usuario al cargar la página
+    obtenerTipoDeUsuario();
 });

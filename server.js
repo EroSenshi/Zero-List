@@ -28,6 +28,10 @@ app.use('/auth', authRoutes);
 const cursosRoutes = require('./routes/cursos');
 app.use('/cursos', cursosRoutes); // Asignar una ruta base para las rutas de cursos
 
+// Rutas para el tipo de usuario
+const usuarioRoutes = require('./routes/usuario');
+app.use('/usuario', usuarioRoutes); // Asignar una ruta base para las rutas de usuario
+
 // Ruta de inicio (puede ser una página de bienvenida)
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -35,7 +39,7 @@ app.get('/', (req, res) => {
 
 // Ruta del panel
 app.get('/panel', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'views','panel.html'));
+  res.sendFile(path.join(__dirname, 'public', 'views', 'panel.html'));
 });
 
 // Iniciar el servidor
