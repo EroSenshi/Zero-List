@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../CSS/style2.css">
+    <link rel="icon" href="../miweb/logo.ico">
+    <!-- Agrega la inclusión de la librería Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Agrega la inclusión de tu script JavaScript (panel.js) -->
+    <script src="../scripts/panel.js"></script>
+    <title>Cursos</title>
+</head>
+<body>
+    <header>
+        <img src="../miweb/img.ico">
+        <h1>Zero-List</h1>
+
+        <form id="right" action="logout.php" method="post">
+            <input class="button" type="submit" value="Cerrar Sesión">
+        </form>
+
+        <div id="mid">
+            <button class="button" id="addCourse">Agregar curso</button>
+            <button class="button" id="editCourse">Editar curso</button>
+            <button class="button" id="deleteCourse">Eliminar curso</button>
+        </div>
+    </header>
+
+    <!-- Corrección: Agrega un div con el ID 'cursos-container' para cargar los cursos -->
+    <div id="cursos-container"></div>
+
+    <footer>
+        <div id="contac">
+            <a href="mailto:damzerotec@gmail.com" target="_blank">Contactarme</a>
+        </div>
+        <p>
+            Copyright 2023 By Zero-Software ©
+        </p>
+    </footer>
+</body>
+</html>

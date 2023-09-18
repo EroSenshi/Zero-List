@@ -1,8 +1,6 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const mysql = require('mysql2');
-const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -16,23 +14,6 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-// Configurar la conexión a la base de datos
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: 'phoenixzero', // Cambia esto al nombre de tu base de datos
-});
-
-// Comprobar la conexión a la base de datos
-db.connect((err) => {
-  if (err) {
-    console.error('Error al conectar a la base de datos:', err);
-    return;
-  }
-  console.log('Conexión a la base de datos exitosa');
-});
-
 // Configurar el directorio de archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -43,11 +24,19 @@ app.use(express.urlencoded({ extended: false }));
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-// Ruta de inicio (es una página de inicio de sesión)
+// Rutas para los cursos
+const cursosRoutes = require('./routes/cursos');
+app.use('/cursos', cursosRoutes); // Asignar una ruta base para las rutas de cursos
+
+// Ruta de inicio (puede ser una página de bienvenida)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/views/inicio-sesion.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Ruta del panel
+app.get('/panel', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'views','panel.html'));
+});
 
 // Iniciar el servidor
 const PORT = process.env.PUERTO || 3000;
