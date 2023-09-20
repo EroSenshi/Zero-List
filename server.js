@@ -32,6 +32,10 @@ app.use('/cursos', cursosRoutes); // Asignar una ruta base para las rutas de cur
 const usuarioRoutes = require('./routes/usuario');
 app.use('/usuario', usuarioRoutes); // Asignar una ruta base para las rutas de usuario
 
+// Rutas para la lista de asistencias
+const listasRoutes = require('./routes/listas');
+app.use('/listas', listasRoutes); // Asignar una ruta base para las rutas de listas
+
 // Ruta de inicio (puede ser una página de bienvenida)
 app.get('/', (req, res) => {
   // Redirige a la página de inicio de sesión

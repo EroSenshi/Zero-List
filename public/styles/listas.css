@@ -1,0 +1,107 @@
+/* Estilos para la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la tabla de asistencias */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para los botones */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el campo de carga de archivos */
+label[for="fotoInput"] {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#fotoInput {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el selector de fechas */
+label[for="fechaSelector"] {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#fechaSelector {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la lista de alumnos y faltas */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li .nombre {
+    flex-grow: 1;
+}
+
+/* Estilos para los estados de asistencia */
+.estado-P {
+    color: #d9534f;
+}
+
+.estado-A {
+    color: #5bc0de;
+}

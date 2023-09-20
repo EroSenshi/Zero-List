@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           cursoDiv.appendChild(eliminarCursoButton);
   
           cursoDiv.addEventListener("click", () => {
-            window.location.href = `/listas.html?id=${curso.id}`;
+            window.location.href = `/listas`
           });
   
           cursosContainer.appendChild(cursoDiv);
