@@ -1,213 +1,233 @@
+/* El Estilo que se encuentra dento de esta hoja de estilo esta pensado solo para el Panel */
 
-        /* El Estilo que se encuentra dento de esta hoja de estilo esta pensado solo para el Panel */
+/* Fuente Predefinida */
 
-    /* Fuente Predefinida */
+html {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
 
-    html {
+/* Estilo del Body */
 
-        font-family: 'Montserrat', sans-serif;
-        text-align: center;
-    
-    }
-    
-    
-      /* Estilo del Body */
-    
-    body {
-    
-        margin: 0;
-        background-color: #f9fadc;
-        zoom: 91%;
-    
-    }
-    
-        /* Estilo del Header */
-    
-    header {
-      background-color: #d4ceaa;
-      color: #2b2823;
-      padding: 1rem 2rem; /* Reducido el padding vertical */
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
-      
-      header h1 {
-        font-size: 1.5rem;
-        margin-left: 1.5rem;
-        margin: 0; /* Eliminado los márgenes */
-      }
-    
-        /* Estilo para el input de texto */
-    
+body {
+  margin: 0;
+  background-color: #f9fadc;
+  zoom: 91%;
+}
 
-      
-        /* Opcional: Estilo cuando el input de texto está enfocado */
-    
-      
-        /* Estilo del cuerpo de la pagina */
-    
-    .container {
-    
-        width: 400px;
-        margin: 0 auto;
-    
-    }
-    
-        /* Estilo de los titulos de las cartas */
-    
-    .card_title {
-    
-        font-size: 1.5rem;
-    
-    }
-    
-    .card_subtitle {
-    
-        font-size: 1.1rem;
-    
-    }
-    
-        /* Estilo de los botones */
-    
-    .button {
-    
-        display: inline-block;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 20px;
-        background-color: #d4ceaa;
-        color: #333;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-    
-    }
-    
-        #ver {
-    
-        display: inline-block;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 20px;
-        background-color: #f9fadc;
-        color: #333;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-    
-    }
-      
-        /* Cambio de color al pasar el mouse */
-    
-    .button:hover {
-    
-        transition: all 0.5s;
-        background-color: #e4ad47;
-    
-    }
-    
-        #ver:hover {
-    
-        transition: all 0.5s;
-        background-color: #e4ad47;
-    
-    }
-    
-        /* Mover a la derecha */
-    
-    #right {
-    
-        position: absolute;
-        top: 13px;
-        right: 20px;
-    
-    }
-    
-        /* Centrar Botones */
-    
-    #mid {
+/* Estilo del Header */
 
-        display: flex;
-        justify-content: center;
-        margin-left:2vw;
+header {
+  background-color: #d4ceaa;
+  color: #2b2823;
+  padding: 1rem 2rem; /* Reducido el padding vertical */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 
-    }
-    
-        /* Estilos Generales del Footer */
-    
-    footer {
-      width: 107vw;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      background-color: #d4ceaa;
-      padding: 20px;
-      color: #2b2823;
-    }
-    
-    footer p {
-    
-        float: left;
-        top: 93%;
-        right: 20rem;
-        margin: 0;
-    
-    }
-    
-    footer a {
-    
-        transition: color 0.3s ease;
-        color: #2b2823;
-        text-decoration: none;
-    
-    }
-    
-    /* estilo al momento de poner el cursor sobre el link */
-    
-    footer a:hover {
-    
-        color: #e64723;
-    
-    }
-    
-        /* Enlace de contacto */
-    
-    #contac {
-    
-        float: right;
-    
-    }
-    
-        /* Tarjetas de curso */
-    
-    .tarjeta {
-        
-        transition: box-shadow 0.3s ease;
-        transition: all .9s ease;
-        background-color: #f9fadc;
-        margin: 2vw;
-        border-radius: 3rem;
-        padding: 0.25rem 0;
-        cursor: pointer;
-        
-    }
-    
-    .tarjeta:hover {
-        
-        box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,0.3);
-        transform: scale(1.08);
-        background-color: #8fa691;
-        color: whitesmoke;
-        
-    }
+header h1 {
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
+  margin: 0; /* Eliminado los márgenes */
+}
 
-    .tarjeta h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
+/* Estilo para el input de texto */
 
-    .tarjeta p {
-      font-size: 14px;
-      color: #666;
-    }
+/* Opcional: Estilo cuando el input de texto está enfocado */
+
+/* Estilo del cuerpo de la pagina */
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+/* Estilo de los titulos de las cartas */
+
+.card_title {
+  font-size: 1.5rem;
+}
+
+.card_subtitle {
+  font-size: 1.1rem;
+}
+
+/* Estilo de los botones */
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #d4ceaa;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#ver {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f9fadc;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Cambio de color al pasar el mouse */
+
+.button:hover {
+  transition: all 0.5s;
+  background-color: #e4ad47;
+}
+
+#ver:hover {
+  transition: all 0.5s;
+  background-color: #e4ad47;
+}
+
+/* Mover a la derecha */
+
+#right {
+  position: absolute;
+  top: 13px;
+  right: 20px;
+}
+
+/* Centrar Botones */
+
+#mid {
+  display: flex;
+  justify-content: center;
+  margin-left: 2vw;
+}
+
+/* Estilos Generales del Footer */
+
+footer {
+  width: 107vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #d4ceaa;
+  padding: 20px;
+  color: #2b2823;
+}
+
+footer p {
+  float: left;
+  top: 93%;
+  right: 20rem;
+  margin: 0;
+}
+
+footer a {
+  transition: color 0.3s ease;
+  color: #2b2823;
+  text-decoration: none;
+}
+
+/* estilo al momento de poner el cursor sobre el link */
+
+footer a:hover {
+  color: #e64723;
+}
+
+/* Enlace de contacto */
+
+#contac {
+  float: right;
+}
+
+/* Tarjetas de curso */
+
+.tarjeta {
+  transition: box-shadow 0.3s ease;
+  transition: all 0.9s ease;
+  background-color: #f9fadc;
+  margin: 2vw;
+  border-radius: 3rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+
+.tarjeta:hover {
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+  transform: scale(1.08);
+  background-color: #8fa691;
+  color: whitesmoke;
+}
+
+.tarjeta h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Esto es de las ventanas flotantes */
+/* Estilos para los modales */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Estilo para el contenedor de cursos */
+#cursos-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila cuando sea necesario */
+    gap: 20px; /* Espacio entre los elementos (cursos) */
+    max-width: calc(40vw - 4vw); /* Ancho máximo del contenedor principal (restando 4vw de margen) */
+    margin: 2vw 2vw; /* Margen de 2vw en los costados y 0 en la parte superior e inferior */
+    justify-content: flex-start; /* Alinea los elementos al comienzo (izquierda) */
+  }
+  
+  /* Estilo para cada curso dentro del contenedor */
+  .curso {
+    flex: 1; /* Hace que los cursos se expandan para llenar el espacio disponible */
+    min-width: calc(33.33% - 20px); /* Establece el ancho mínimo para cada curso (33.33% - espacio entre elementos) */
+    padding: 10px; /* Espacio interno dentro de cada curso */
+    background-color: #fff; /* Color de fondo opcional */
+    border: 1px solid #ddd; /* Borde opcional */
+    border-radius: 5px; /* Borde redondeado opcional */
+  }
+  
+  
