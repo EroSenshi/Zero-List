@@ -1,92 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
 
-    <title> Cursos </title>
-
-    <link rel="stylesheet" href="../styles/panel.css">
-    <link rel="icon" href="../img/logo.ico">
+    <link rel="stylesheet" href="../styles/panel.css" />
+    <link rel="icon" href="../img/logo.ico" />
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../scripts/panel.js"></script>
+  </head>
+  <header>
+    <button id="cerrar-sesion-button">Cerrar Session</button>
 
-</head>
-<header>
-
-    <button id="cerrar-sesion-button"> Cerrar Session </button>
-
-    <button class="button" id="addCourse"> Crear curso </button>
+    <button class="button" id="addCourse">Crear curso</button>
 
     <button class="button" id="enterCourse">Entrar a curso</button>
+  </header>
+  <body>
+    <div id="cursos-container"></div>
 
-</header>
-<body>
+    <!-- Modal para Eliminar Curso -->
 
-    <div id="cursos-container">
+    <div id="eliminarCursoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="cerrarEliminarCursoModal">&times;</span>
 
+        <h2>Eliminar Curso</h2>
+
+        <p>
+          ¿Seguro que quieres eliminar el curso
+          <span id="nombreCursoAEliminar"></span>?
+        </p>
+
+        <button id="confirmarEliminarCurso">Confirmar</button>
+        <button id="cancelarEliminarCurso">Cancelar</button>
+      </div>
     </div>
 
-        <!-- Modal para Eliminar Curso -->
-    
-        <div id="eliminarCursoModal" class="modal">
-
-        <div class="modal-content">
-
-            <span class="close-button" id="cerrarEliminarCursoModal">&times;</span>
-
-            <h2> Eliminar Curso </h2>
-
-            <p>¿Seguro que quieres eliminar el curso <span id="nombreCursoAEliminar"></span>?</p>
-
-            <button id="confirmarEliminarCurso">Confirmar</button>
-            <button id="cancelarEliminarCurso">Cancelar</button>
-
-        </div>
-
-    </div>
-
-        <!-- Modal para Editar Curso -->
+    <!-- Modal para Editar Curso -->
 
     <div id="editarCursoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="cerrarEditarCursoModal">&times;</span>
 
-        <div class="modal-content">
+        <h2>Editar Curso</h2>
 
-            <span class="close-button" id="cerrarEditarCursoModal">&times;</span>
+        <label for="nuevoNombreCurso">Nuevo nombre del curso:</label>
+        <input type="text" id="nuevoNombreCurso" />
 
-            <h2> Editar Curso </h2>
-
-            <label for="nuevoNombreCurso">Nuevo nombre del curso:</label>
-            <input type="text" id="nuevoNombreCurso">
-
-            <button id="confirmarEditarCurso">Confirmar</button>
-            <button id="cancelarEditarCurso">Cancelar</button>
-
-        </div>
-
+        <button id="confirmarEditarCurso">Confirmar</button>
+        <button id="cancelarEditarCurso">Cancelar</button>
+      </div>
     </div>
 
-        <!-- Modal para Agregar Curso -->
+    <!-- Modal para Agregar Curso -->
 
     <div id="agregarCursoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="cerrarAgregarCursoModal">&times;</span>
 
-        <div class="modal-content">
+        <h2>Add course</h2>
 
-            <span class="close-button" id="cerrarAgregarCursoModal">&times;</span>
+        <label for="nombreCurso"> Course Name </label>
+        <input type="text" id="nombreCurso" />
 
-            <h2> Add course </h2>
-
-            <label for="nombreCurso"> Course Name </label>
-            <input type="text" id="nombreCurso">
-
-            <button id="confirmarAgregarCurso"> Confirm </button>
-            <button id="cancelarAgregarCurso"> Cancel </button>
-
-        </div>
-
+        <button id="confirmarAgregarCurso">Confirm</button>
+        <button id="cancelarAgregarCurso">Cancel</button>
+      </div>
     </div>
 
-</body>
+    <!-- Modal para ingresar el ID del curso -->
+    <div id="entrarCursoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="cerrarEntrarCursoModal">&times;</span>
+        <h2>Entrar a Curso</h2>
+        <label for="idCurso">ID del Curso:</label>
+        <input type="text" id="idCurso" />
+        <button type="button" id="confirmarEntrarCurso">Confirmar</button>
+        <button type="button" id="cancelarEntrarCurso">Cancelar</button>
+      </div>
+    </div>
+  </body>
 </html>

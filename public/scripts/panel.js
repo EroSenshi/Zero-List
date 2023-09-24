@@ -165,6 +165,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("cancelarAgregarCurso").addEventListener("click", () => {
       closeModal(); // Cierra el modal al hacer clic en "Cancelar"
     });
+      // Abre el modal para entrar a un curso al hacer clic en el botón "Entrar a Curso"
+  document.getElementById("entrarCursoButton").addEventListener("click", () => {
+    document.getElementById("entrarCursoModal").style.display = "block";
+  });
+
+  // Cierra el modal al hacer clic en el botón "Cancelar"
+  document.getElementById("cancelarEntrarCurso").addEventListener("click", () => {
+    document.getElementById("entrarCursoModal").style.display = "none";
+  });
+
+  // Agrega un event listener para el botón "Confirmar"
+  document.getElementById("confirmarEntrarCurso").addEventListener("click", () => {
+    // Obtiene el valor del campo de entrada (ID del curso)
+    const idCurso = document.getElementById("idCurso").value;
+
+    // Llama a la función para entrar al curso con el ID proporcionado
+    entrarACurso(idCurso);
+
+    // Cierra el modal después de confirmar (agrega tu lógica aquí)
+    // Ejemplo: document.getElementById("entrarCursoModal").style.display = "none";
+  });
   
     // ... Tu código existente ...
   });
