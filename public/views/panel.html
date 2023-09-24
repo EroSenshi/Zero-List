@@ -5,30 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Curses </title>
+    <title> Cursos </title>
 
-    <link rel="stylesheet" href="../styles/style2.css">
+    <link rel="stylesheet" href="../styles/panel.css">
     <link rel="icon" href="../img/logo.ico">
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../scripts/panel.js"></script>
 
 </head>
+<header>
+
+    <button id="cerrar-sesion-button"> Cerrar Session </button>
+
+    <button class="button" id="addCourse"> Crear curso </button>
+
+    <button class="button" id="enterCourse">Entrar a curso</button>
+
+</header>
 <body>
-
-    <header>
-
-        <img src="../img/img.ico">
-
-        <h1>Zero-List</h1>
-
-        <button id="cerrar-sesion-button">Cerrar Sesion</button>
-
-        <div id="mid">
-            <button class="button" id="addCourse">Agregar curso</button>
-        </div>
-
-    </header>
 
     <div id="cursos-container">
 
@@ -81,31 +76,17 @@
 
             <span class="close-button" id="cerrarAgregarCursoModal">&times;</span>
 
-            <h2> Agregar Curso </h2>
+            <h2> Add course </h2>
 
-            <label for="nombreCurso">Nombre del curso:</label>
+            <label for="nombreCurso"> Course Name </label>
             <input type="text" id="nombreCurso">
 
-            <button id="confirmarAgregarCurso">Confirmar</button>
-            <button id="cancelarAgregarCurso">Cancelar</button>
+            <button id="confirmarAgregarCurso"> Confirm </button>
+            <button id="cancelarAgregarCurso"> Cancel </button>
 
         </div>
 
     </div>
-
-    <footer>
-
-        <div id="contac">
-
-            <a href="mailto:damzerotec@gmail.com" target="_blank">Contactarme</a>
-
-        </div>
-
-        <p>
-            Copyright 2023 By Zero-Software ©
-        </p>
-
-    </footer>
 
 </body>
 </html>

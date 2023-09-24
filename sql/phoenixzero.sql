@@ -13,8 +13,11 @@ CREATE TABLE `usuarios` (
 CREATE TABLE `cursos` (
   `id` INT AUTO_INCREMENT NOT NULL,
   `nombreDeCurso` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `idUsuario` INT,  -- Campo opcional para la relación con usuarios
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`)
 );
+
 
 CREATE TABLE `asistencias` (
   `id` INT AUTO_INCREMENT NOT NULL,

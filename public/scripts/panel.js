@@ -28,12 +28,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Función para configurar los botones según el tipo de usuario
     function configurarBotones(tipoDeUsuario) {
       const addCourseButton = document.getElementById("addCourse");
+      const enterCourseButton = document.getElementById("enterCourse")
       const editarCursoButtons = document.querySelectorAll(".editar-curso-button");
       const eliminarCursoButtons = document.querySelectorAll(".eliminar-curso-button");
   
       if (tipoDeUsuario == 0) {
         // Usuario tipo 0 (profesor/preceptor)
-        addCourseButton.style.display = "block";
+        addCourseButton.style.display = "flex";
+        
         editarCursoButtons.forEach((button) => {
           button.style.display = "block";
         });
@@ -66,8 +68,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           const cursoDiv = document.createElement("div");
           cursoDiv.classList.add("curso");
           cursoDiv.innerHTML = `
-            <h3>${curso.nombreDeCurso}</h3>
-            <p>ID: ${curso.id}</p>
+            <h3 id="cursoName">${curso.nombreDeCurso}</h3>
+            <p id="cursoID">ID: ${curso.id}</p>
           `;
   
           const editarCursoButton = document.createElement("button");
@@ -110,6 +112,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
   
+    async function agregarCurso(){
+
+    }
+
     // Cargar cursos una vez obtenido el tipo de usuario
     await cargarCursos();
   
@@ -139,6 +145,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           console.error("Error al cerrar sesión:", error);
         });
     });
+
   
     document.getElementById("cancelarEditarCurso").addEventListener("click", () => {
       closeModal(); // Cierra el modal al hacer clic en "Cancelar"

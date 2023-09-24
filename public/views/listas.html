@@ -9,15 +9,17 @@
 
     <link rel="stylesheet" href="../styles/listas.css">
     <link rel="icon" href="../img/logo.ico">
+    <script src="../scripts/listas.js"></script>
 
 </head>
 <header>
 
-        <input type="date" id="fechaSelector">
+        <button id="back"> Back to course list </button>
 
+        <input type="date" id="fechaSelector">
         <button onclick="buscarFaltas()"> Filter list </button>
 
-        <button onclick="subirFoto()" id="upload"> Upload photo </button>
+        <button id="cerrar-sesion-button"> Cerrar Session </button>
 
 </header>
 <body>
@@ -30,11 +32,11 @@
 
             <tr>
             
-                <th>ID</th>
-                <th>Name</th>
-                <th>Attendance</th>
-                <th>Attendance rate</th>
-                <th>Justification of absence</th>
+                <th> ID </th>
+                <th> Full Name </th>
+                <th> Attendance Status </th>
+                <th> Attendance rate </th>
+                <th> Selector </th>
 
             </tr>
 
@@ -43,6 +45,21 @@
         <tbody id="tablaAlumnos">
 
             <!-- Aquí se llenará la lista de alumnos y faltas -->
+          
+             <tr>
+            
+                <th>  </th>
+                <th>  </th>
+                <th>  </th>
+                <th>  </th>
+                <th> 
+                    
+                    <button id="present"> Present </button>
+                    <button id="absent"> Absent </button>
+
+                </th>
+
+            </tr>
 
         </tbody>
 
