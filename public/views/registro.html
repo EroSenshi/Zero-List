@@ -1,43 +1,71 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Usuario</title>
-  <link rel="stylesheet" href="../styles/style.css">
-  <link rel="icon" href="../img/logo.ico">
-</head>
-<body>
-  <h1>Registro de Usuario</h1>
-  <form action="/auth/registro" method="POST">
-    <label for="nombreDeUsuario">Nombre de Usuario:</label>
-    <input type="text" id="nombreDeUsuario" name="nombreDeUsuario" required><br>
-    
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required><br>
-    <label for="tipoDeUsuario">Tipo de Usuario:</label>
-    <select id="tipoDeUsuario" name="tipoDeUsuario" required>
-      <option value="0">Profesor/Preceptor</option>
-      <option value="1">Alumno</option>
-    </select><br>
-    <label for="contraseña">Contraseña:</label>
-    <input type="password" id="contraseña" name="contraseña" required><br>
-    
-    <label for="confirmarContraseña">Confirmar Contraseña:</label>
-    <input type="password" id="confirmarContraseña" name="confirmarContraseña" required><br>
-    
-    <button type="submit">Registrarse</button>
-  </form>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
 
-  <!-- Botón para ir a la página de inicio de sesión -->
-  <a href="/auth/inicio-sesion">Iniciar Sesión</a>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script>
-    // Redirigir a la página de inicio de sesión después de un registro exitoso
-    const queryString = window.location.search;
-    if (queryString.includes('registro=exitoso')) {
-      window.location.href = '/auth/inicio-sesion';
-    }
-  </script>
-</body>
-</html>
+      <title> Sing Up </title>
+
+      <link rel="stylesheet" href="../styles/singup.css">
+      <link rel="icon" href="../img/logo.ico">
+
+    </head>
+    <body>
+
+      <section>
+
+        <article>
+
+          <h1> Sing Up </h1>
+
+          <form action="/auth/registro" method="POST">
+
+            <label for="nombreDeUsuario"> Username </label>
+            <input type="text" id="nombreDeUsuario" name="nombreDeUsuario" required><br>
+            
+            <label for="nombre"> Full Name </label>
+            <input type="text" id="nombre" name="nombre" required><br>
+
+            <label for="tipoDeUsuario"> User Tipe </label>
+
+            <select id="tipoDeUsuario" name="tipoDeUsuario" required>
+
+              <option value="0"> Profesor/Preceptor </option>
+              <option value="1"> Alumno </option>
+
+            </select>
+            
+            <br>
+
+            <label for="contraseña"> Password </label>
+            <input type="password" id="contraseña" name="contraseña" required><br>
+            
+            <label for="confirmarContraseña"> Password Confirm </label>
+            <input type="password" id="confirmarContraseña" name="confirmarContraseña" required><br>
+            
+            <button type="submit"> Send </button>
+
+          </form>
+
+            <!-- Botón para ir a la página de inicio de sesión -->
+            
+          <a href="/auth/inicio-sesion"> Login </a>
+
+        </article>
+
+      </section>
+
+      <script>
+
+        // Redirigir a la página de inicio de sesión después de un registro exitoso
+        const queryString = window.location.search;
+
+        if (queryString.includes('registro=exitoso')) {
+          window.location.href = '/auth/inicio-sesion';
+        }
+
+      </script>
+
+    </body>
+    </html>

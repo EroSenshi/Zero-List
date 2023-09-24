@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Seguimiento de Asistencias</title>
-    <link rel="stylesheet" href="listas.css">
-</head>
-<body>
-    <h1>Sistema de Seguimiento de Asistencias</h1>
 
-    <!-- Selector de fechas -->
-    <label for="fechaSelector">Selecciona una fecha:</label>
-    <input type="date" id="fechaSelector">
-    <button onclick="buscarFaltas()">Buscar</button>
+    <title> Attendance tracking </title>
+
+    <link rel="stylesheet" href="../styles/listas.css">
+    <link rel="icon" href="../img/logo.ico">
+
+</head>
+<header>
+
+        <input type="date" id="fechaSelector">
+
+        <button onclick="buscarFaltas()"> Filter list </button>
+
+        <button onclick="subirFoto()" id="upload"> Upload photo </button>
+
+</header>
+<body>
 
     <!-- Lista de alumnos y faltas -->
-    <h2>Lista de Alumnos</h2>
+
     <table>
+
         <thead>
+
             <tr>
+            
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Estado</th>
-                <th>Subir Foto</th>
+                <th>Name</th>
+                <th>Attendance</th>
+                <th>Attendance rate</th>
+                <th>Justification of absence</th>
+
             </tr>
+
         </thead>
+
         <tbody id="tablaAlumnos">
+
             <!-- Aquí se llenará la lista de alumnos y faltas -->
+
         </tbody>
+
     </table>
 
-    <!-- Campo de carga de archivos -->
-    <h2>Cargar Fotos</h2>
-    <label for="fotoInput">Selecciona una foto (JPG):</label>
-    <input type="file" id="fotoInput">
-    <button onclick="subirFoto()">Subir Foto</button>
-
     <!-- Script JavaScript para la lógica -->
+
     <script>
+
         // Función para buscar faltas en la fecha seleccionada
         function buscarFaltas() {
             const fechaSeleccionada = document.getElementById("fechaSelector").value;
@@ -54,6 +68,7 @@
             
             // Aquí debes enviar la foto al servidor para su procesamiento y almacenamiento.
         }
+
     </script>
 </body>
 </html>

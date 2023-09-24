@@ -1,69 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Curses </title>
+
     <link rel="stylesheet" href="../styles/style2.css">
     <link rel="icon" href="../img/logo.ico">
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../scripts/panel.js"></script>
-    <title>Cursos</title>
+
 </head>
 <body>
+
     <header>
+
         <img src="../img/img.ico">
+
         <h1>Zero-List</h1>
+
         <button id="cerrar-sesion-button">Cerrar Sesion</button>
+
         <div id="mid">
             <button class="button" id="addCourse">Agregar curso</button>
         </div>
+
     </header>
 
     <div id="cursos-container">
+
     </div>
 
-    <!-- Modal para Eliminar Curso -->
-    <div id="eliminarCursoModal" class="modal">
+        <!-- Modal para Eliminar Curso -->
+    
+        <div id="eliminarCursoModal" class="modal">
+
         <div class="modal-content">
+
             <span class="close-button" id="cerrarEliminarCursoModal">&times;</span>
-            <h2>Eliminar Curso</h2>
+
+            <h2> Eliminar Curso </h2>
+
             <p>¿Seguro que quieres eliminar el curso <span id="nombreCursoAEliminar"></span>?</p>
+
             <button id="confirmarEliminarCurso">Confirmar</button>
             <button id="cancelarEliminarCurso">Cancelar</button>
+
         </div>
+
     </div>
 
-    <!-- Modal para Editar Curso -->
+        <!-- Modal para Editar Curso -->
+
     <div id="editarCursoModal" class="modal">
+
         <div class="modal-content">
+
             <span class="close-button" id="cerrarEditarCursoModal">&times;</span>
-            <h2>Editar Curso</h2>
+
+            <h2> Editar Curso </h2>
+
             <label for="nuevoNombreCurso">Nuevo nombre del curso:</label>
             <input type="text" id="nuevoNombreCurso">
+
             <button id="confirmarEditarCurso">Confirmar</button>
             <button id="cancelarEditarCurso">Cancelar</button>
+
         </div>
+
     </div>
 
-    <!-- Modal para Agregar Curso -->
+        <!-- Modal para Agregar Curso -->
+
     <div id="agregarCursoModal" class="modal">
+
         <div class="modal-content">
+
             <span class="close-button" id="cerrarAgregarCursoModal">&times;</span>
-            <h2>Agregar Curso</h2>
+
+            <h2> Agregar Curso </h2>
+
             <label for="nombreCurso">Nombre del curso:</label>
             <input type="text" id="nombreCurso">
+
             <button id="confirmarAgregarCurso">Confirmar</button>
             <button id="cancelarAgregarCurso">Cancelar</button>
+
         </div>
+
     </div>
 
     <footer>
+
         <div id="contac">
+
             <a href="mailto:damzerotec@gmail.com" target="_blank">Contactarme</a>
+
         </div>
+
         <p>
             Copyright 2023 By Zero-Software ©
         </p>
+
     </footer>
+
 </body>
 </html>
