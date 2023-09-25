@@ -1,15 +1,22 @@
 header {
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-
-  }
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 
 #cerrar-sesion-button {
     float: right;
 
 }
+
+#enterCourse {
+  float: left;
+  
+}
+
   
 label {
   color: #fff;

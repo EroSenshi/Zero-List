@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const dotenv = require('dotenv');
+const axios = require('axios')
 
 dotenv.config();
 
@@ -31,6 +32,9 @@ app.use('/cursos', cursosRoutes); // Asignar una ruta base para las rutas de cur
 // Rutas para el tipo de usuario
 const usuarioRoutes = require('./routes/usuario');
 app.use('/usuario', usuarioRoutes); // Asignar una ruta base para las rutas de usuario
+
+
+  
 
 // Rutas para la lista de asistencias
 const listasRoutes = require('./routes/listas');

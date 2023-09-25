@@ -14,7 +14,15 @@
 </head>
 <header>
 
-        <button id="back"> Back to course list </button>
+    <button id="back">Volver a cursos</button>
+
+    <script>
+        // Agregar un evento de clic al botón
+        document.getElementById('back').addEventListener('click', function() {
+            // Redirigir a la nueva ruta
+            window.location.href = '/panel';
+        });
+    </script>
 
         <input type="date" id="fechaSelector">
         <button onclick="buscarFaltas()"> Filter list </button>

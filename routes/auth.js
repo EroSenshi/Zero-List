@@ -18,7 +18,13 @@ router.get("/registro", (req, res) => {
 
 // Procesar registro (POST)
 router.post("/registro", (req, res) => {
-  const { nombreDeUsuario, nombre, contraseña, confirmarContraseña, tipoDeUsuario } = req.body;
+  const {
+    nombreDeUsuario,
+    nombre,
+    contraseña,
+    confirmarContraseña,
+    tipoDeUsuario,
+  } = req.body;
 
   // Verificar si las contraseñas coinciden
   if (contraseña !== confirmarContraseña) {
@@ -34,19 +40,22 @@ router.post("/registro", (req, res) => {
       // Insertar el usuario en la base de datos
       const sql =
         "INSERT INTO usuarios (nombreDeUsuario, nombre, contraseña, tipoDeUsuario) VALUES (?, ?, ?, ?)";
-      db.query(sql, [nombreDeUsuario, nombre, hash, tipoDeUsuario], (err, results) => {
-        if (err) {
-          console.error(err);
-          res.status(500).send("Error en el registro");
-        } else {
-          // Redirigir con un indicador de registro exitoso
-          res.redirect("/auth/inicio-sesion?registro=exitoso");
+      db.query(
+        sql,
+        [nombreDeUsuario, nombre, hash, tipoDeUsuario],
+        (err, results) => {
+          if (err) {
+            console.error(err);
+            res.status(500).send("Error en el registro");
+          } else {
+            // Redirigir con un indicador de registro exitoso
+            res.redirect("/auth/inicio-sesion?registro=exitoso");
+          }
         }
-      });
+      );
     }
   });
 });
-
 
 // Página de inicio de sesión (GET)
 router.get("/inicio-sesion", (req, res) => {
@@ -72,10 +81,13 @@ router.post("/inicio-sesion", (req, res) => {
         } else if (match) {
           req.session.loggedIn = true;
           req.session.nombreDeUsuario = nombreDeUsuario;
-
           // Obtener el tipo de usuario y almacenarlo en la sesión
           const tipoDeUsuario = usuario.tipoDeUsuario;
           req.session.tipoDeUsuario = tipoDeUsuario;
+
+          // Obtener el ID de usuario y almacenarlo en la sesión
+          const idUsuario = usuario.id; // Asegúrate de que tu tabla de usuarios tenga un campo 'id' para el ID de usuario
+          req.session.idUsuario = idUsuario;
 
           res.redirect("/panel");
         } else {
@@ -87,7 +99,6 @@ router.post("/inicio-sesion", (req, res) => {
     }
   });
 });
-
 
 // Ruta para cerrar sesión
 router.get("/cerrar-sesion", (req, res) => {

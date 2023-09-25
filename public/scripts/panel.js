@@ -25,104 +25,66 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
   
+
+
+    
     // Función para configurar los botones según el tipo de usuario
     function configurarBotones(tipoDeUsuario) {
       const addCourseButton = document.getElementById("addCourse");
-      const enterCourseButton = document.getElementById("enterCourse")
-      const editarCursoButtons = document.querySelectorAll(".editar-curso-button");
-      const eliminarCursoButtons = document.querySelectorAll(".eliminar-curso-button");
+      const editarCursoButtons = document.getElementById("editarCurso");
+      const eliminarCursoButtons = document.getElementById("eliminarCurso");
   
-      if (tipoDeUsuario == 0) {
+      if (tipoDeUsuario != 0) {
         // Usuario tipo 0 (profesor/preceptor)
-        addCourseButton.style.display = "flex";
-        
-        editarCursoButtons.forEach((button) => {
-          button.style.display = "block";
-        });
-        eliminarCursoButtons.forEach((button) => {
-          button.style.display = "block";
-        });
-      } else {
-        // Usuario tipo 1 (alumno)
         addCourseButton.style.display = "none";
-        editarCursoButtons.forEach((button) => {
-          button.style.display = "none";
-        });
-        eliminarCursoButtons.forEach((button) => {
-          button.style.display = "none";
-        });
+        editarCursoButtons.style.display = "none";
+        eliminarCursoButtons.style.display = "none";
       }
     }
-  
-    // Cargar cursos una vez obtenido el tipo de usuario
-    async function cargarCursos() {
+    async function cargarCursosDesdeBD() {
       try {
         const response = await axios.get("/cursos");
         const cursos = response.data;
         const cursosContainer = document.getElementById("cursos-container");
-  
+    
         // Limpiar el contenido existente en el contenedor de cursos
         cursosContainer.innerHTML = "";
-  
+    
         cursos.forEach((curso) => {
           const cursoDiv = document.createElement("div");
           cursoDiv.classList.add("curso");
           cursoDiv.innerHTML = `
             <h3 id="cursoName">${curso.nombreDeCurso}</h3>
-            <p id="cursoID">ID: ${curso.id}</p>
+            <p id="cursoID${curso.id}">ID: ${curso.id}</p>
           `;
-  
-          const editarCursoButton = document.createElement("button");
-          editarCursoButton.textContent = "Editar Curso";
-          editarCursoButton.classList.add("editar-curso-button");
-          editarCursoButton.addEventListener("click", (e) => {
-            e.stopPropagation(); // Evita la propagación del evento de clic al div padre
-            document.getElementById("editarCursoModal").style.display = "block";
-          });
-  
-          const eliminarCursoButton = document.createElement("button");
-          eliminarCursoButton.textContent = "Eliminar Curso";
-          eliminarCursoButton.classList.add("eliminar-curso-button");
-          eliminarCursoButton.addEventListener("click", (e) => {
-            e.stopPropagation(); // Evita la propagación del evento de clic al div padre
-            const nombreCursoAEliminar = curso.nombreDeCurso;
-            document.getElementById("nombreCursoAEliminar").textContent = nombreCursoAEliminar;
-            document.getElementById("eliminarCursoModal").style.display = "block";
-          });
-  
-          cursoDiv.appendChild(editarCursoButton);
-          cursoDiv.appendChild(eliminarCursoButton);
-  
+    
           cursoDiv.addEventListener("click", () => {
-            window.location.href = `/listas`
+            window.location.href = `/listas`;
           });
-  
+    
           cursosContainer.appendChild(cursoDiv);
         });
       } catch (error) {
         console.error("Error al cargar cursos:", error);
       }
     }
+    
+    // Llamar a la función para cargar los cursos desde la base de datos
+    cargarCursosDesdeBD();
   
-    // Función para cerrar cualquier modal
+    // Obtener y configurar el tipo de usuario al cargar la página
+    await obtenerTipoDeUsuario();
+  
+    // Resto de tu código...
+
+
     function closeModal() {
       const modals = document.querySelectorAll(".modal");
       modals.forEach((modal) => {
         modal.style.display = "none";
       });
     }
-  
-    async function agregarCurso(){
-
-    }
-
-    // Cargar cursos una vez obtenido el tipo de usuario
-    await cargarCursos();
-  
-    // Obtener y configurar el tipo de usuario al cargar la página
-    await obtenerTipoDeUsuario();
-  
-    // Resto de tu código...
+    
   
     // Limpiar el almacenamiento local al hacer clic en cerrar sesión
     const cerrarSesionButton = document.getElementById("cerrar-sesion-button");
@@ -166,8 +128,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       closeModal(); // Cierra el modal al hacer clic en "Cancelar"
     });
       // Abre el modal para entrar a un curso al hacer clic en el botón "Entrar a Curso"
-  document.getElementById("entrarCursoButton").addEventListener("click", () => {
+  document.getElementById("enterCourse").addEventListener("click", () => {
     document.getElementById("entrarCursoModal").style.display = "block";
+  });
+
+  document.getElementById("editarCurso").addEventListener("click", () => {
+    document.getElementById("editarCursoModal").style.display = "block";
+  });
+
+  document.getElementById("eliminarCurso").addEventListener("click", () => {
+    document.getElementById("eliminarCursoModal").style.display = "block";
   });
 
   // Cierra el modal al hacer clic en el botón "Cancelar"
@@ -175,18 +145,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("entrarCursoModal").style.display = "none";
   });
 
-  // Agrega un event listener para el botón "Confirmar"
-  document.getElementById("confirmarEntrarCurso").addEventListener("click", () => {
-    // Obtiene el valor del campo de entrada (ID del curso)
-    const idCurso = document.getElementById("idCurso").value;
-
-    // Llama a la función para entrar al curso con el ID proporcionado
-    entrarACurso(idCurso);
-
-    // Cierra el modal después de confirmar (agrega tu lógica aquí)
-    // Ejemplo: document.getElementById("entrarCursoModal").style.display = "none";
-  });
-  
-    // ... Tu código existente ...
   });
   
