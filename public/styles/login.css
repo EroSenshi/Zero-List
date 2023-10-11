@@ -165,3 +165,16 @@ body {
     bottom: 100%;
   }
 }
+
+.boton{
+  position: absolute;
+  bottom: 20px;
+  padding: 8px 25px;
+  border: 2px solid #03e9f4;
+  border-radius: 8px;
+  color: #03e9f4;
+  outline: none;
+  background: transparent;
+  font-size: 0.8em;
+  cursor: pointer;
+}
