@@ -17,50 +17,41 @@
 
     <h2> Sing Up </h2>
 
-    <form>
+   <form action="../../src/registro.php" method="post"> 
 
       <div class="user-box">
-
-        <input type="text" name="" required="">
+        <input type="text" name="nombreusuario" id="nombreusuario" required="">
         <label> Username </label>
-
-      </div>
-
+    </div>
+    
       <div class="user-box">
 
-        <input type="text" name="" required="">
+        <input type="text" name="nombre" id="nombre" required="">
         <label> Full Name </label>
 
       </div>
 
       <div class="user-box">
 
-        <input type="password" name="" required="">
+        <input type="password" name="password" id="password" required="">
         <label> Password </label>
 
       </div>
 
       <div class="user-box">
 
-        <input type="password" name="" required="">
+        <input type="password" name="confirmar_password" id="confirmar_password" required="">
         <label> Password Confirm </label>
 
       </div>
 
-      <select name="" required="">
+      <select name="tipo_usuario" id="tipo_usuario" required="">
         
         <option value="0"> Profesor/Preceptor </option>
         <option value="1"> Alumno </option>
 
       </select>
-
-      <a href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Submit
-      </a>
+      <input type="submit" value="submit">
 
     </form>
 
