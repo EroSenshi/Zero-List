@@ -183,8 +183,8 @@ html {
 }
   /* Estilo de las opciones del select */
   #tipo_usuario option {
-    background-color: #fff;
-    color: #333;
+    background-color: #333;
+    color: #fff;
   }
 
   .boton{
