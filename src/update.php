@@ -29,7 +29,7 @@
         $nuevo_nombre_curso = $_POST["nombre_curso"];
         $sql = "UPDATE cursos SET nombre_curso = '$nuevo_nombre_curso' WHERE id = $curso_id";
         if ($conn->query($sql) === TRUE) {
-            header("Location: mostrar_cursos.php");
+            header("Location: ../public/views/mostrar_cursos.php");
             exit;
         } else {
             echo "Error al editar el curso: " . $conn->error;
