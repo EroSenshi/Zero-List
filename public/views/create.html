@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generar Curso</title>
+</head>
+<body>
+    <h1>Generar Nuevo Curso</h1>
+    <form method="POST" action="../../src/crear_curso.php">
+        <label for="nombre_curso">Nombre del Curso:</label>
+        <input type="text" id="nombre_curso" name="nombre_curso" required>
+        <br>
+        <input type="hidden" name="crear_curso" value="1">
+        <input type="submit" value="Generar Curso">
+    </form>
+</body>
+</html>
+
