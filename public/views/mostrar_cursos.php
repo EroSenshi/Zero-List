@@ -43,7 +43,7 @@ if (isset($_COOKIE["user_id"])) {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $nombre_curso = $row['nombre_curso'];
-                echo "<li>$nombre_curso <a href='ver_alumnos.php?id={$row['id']}'>Ver Alumnos</a><a href='update.php?id={$row['id']}'>Editar</a> <a href='delete.php?id={$row['id']}'>Eliminar</a></li>";
+                echo "<li>$nombre_curso <a href='asistencia_alumnos.php?id={$row['id']}'>Tomar Asistencias</a> <a href='update.html?id={$row['id']}'>Editar</a> <a href='../../src/delete.php?id={$row['id']}'>Eliminar</a></li>";
             }
         } else {
             echo "No se encontraron cursos en la base de datos.";
