@@ -25,15 +25,6 @@ nav a:hover {
     background-color: #0056b3;
 }
 
-.container {
-    max-width: 700px;
-    margin: 90px auto 0;
-    padding: 20px;
-    background: #243b55; /* Cambiado el fondo a azul oscuro */
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
 /* Estilos para la carta */
 .carta {
     list-style-type: none;
@@ -111,4 +102,11 @@ nav a:hover {
     border: 1px solid #ff9999;
     border-radius: 5px;
     text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centra verticalmente en la ventana */
 }
