@@ -46,9 +46,9 @@ if (isset($_COOKIE["user_id"])) {
                 echo '<div class="carta">';
                 echo '<div class="nombre-curso">' . $nombre_curso . '</div>';
                 echo '<div class="botones">';
-                echo '<a href="../../src/lista_alumnos.php?id=' . $row['id'] . '" class="boton">Tomar Asistencias</a>';
-                echo '<a href="../../src/update.php?id=' . $row['id'] . '" class="boton">Editar</a>';
-                echo '<a href="../../src/delete.php?id=' . $row['id'] . '" class="boton">Eliminar</a>';
+                echo '<a href="lista_alumnos.php?id=' . $row['id'] . '" class="boton">Tomar Asistencias</a>';
+                echo '<a href="update.php?id=' . $row['id'] . '" class="boton">Editar</a>';
+                echo '<a href="delete.php?id=' . $row['id'] . '" class="boton">Eliminar</a>';
                 echo '</div>';
                 echo '</div>';
             }
