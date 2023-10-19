@@ -1,0 +1,70 @@
+/* Estilos para el formulario de asistencia */
+.attendance-form {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex; /* Aplicado al formulario */
+}
+
+/* Estilos para la información del estudiante (izquierda) */
+.student-info {
+    flex: 1;
+    padding: 10px;
+    text-align: left; /* Aplicado a la sección de información del estudiante */
+}
+
+/* Estilos para los botones de asistencia (derecha) */
+.attendance-buttons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* Aplicado a la sección de botones de asistencia */
+}
+
+/* Estilos para el nombre del estudiante */
+.student-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Estilos para los botones de asistencia (Presente/Ausente) */
+.attendance-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+/* Estilos para el botón "Presente" */
+.present-button {
+    background-color: #4caf50;
+}
+
+/* Estilos para el botón "Ausente" */
+.absent-button {
+    background-color: #f44336;
+}
+
+/* Estilos para el título "Lista de Alumnos" */
+.titulo {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Estilos para el mensaje de error */
+.error-message {
+    background-color: #ffcccc;
+    color: #cc0000;
+    padding: 10px;
+    border: 1px solid #ff9999;
+    border-radius: 5px;
+    text-align: center;
+}
