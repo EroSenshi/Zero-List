@@ -26,14 +26,15 @@ if (isset($_COOKIE["user_id"])) {
 <head>
     <meta charset="UTF-8">
     <title>Mostrar Cursos</title>
+    <link rel="stylesheet" href="../style/cursols.css">
 </head>
 <body>
     <nav>
-        <a href="create.html">Generar Nuevo Curso</a>
         <h2>Bienvenido <?php echo $nombre; ?></h2>
-    </nav>
-    <h1>Lista de Cursos</h1>
-    <ul>
+        <a href="create.html">Generar Nuevo Curso</a>
+    </nav>  
+    <h1 class="titulo">Lista de Cursos</h1>
+    <ul class="carta">
         <?php
 
         // Consulta SQL para recuperar los cursos
@@ -43,7 +44,12 @@ if (isset($_COOKIE["user_id"])) {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $nombre_curso = $row['nombre_curso'];
-                echo "<li>$nombre_curso <a href='../../src/lista_alumnos.php?id={$row['id']}'>Tomar Asistencias</a> <a href='../../src/update.php?id={$row['id']}'>Editar</a> <a href='../../src/delete.php?id={$row['id']}'>Eliminar</a></li>";
+                echo '<li class="nombre-curso">' . $nombre_curso . '</li>';
+                echo '<li class="botones">';
+                echo '<a href="../../src/lista_alumnos.php?id=' . $row['id'] . '" class="boton">Tomar Asistencias</a>';
+                echo '<a href="../../src/update.php?id=' . $row['id'] . '" class="boton">Editar</a>';
+                echo '<a href="../../src/delete.php?id=' . $row['id'] . '" class="boton">Eliminar</a>';
+                echo '</li>';
             }
         } else {
             echo "No se encontraron cursos en la base de datos.";
