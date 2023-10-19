@@ -1,5 +1,5 @@
 <?php
-include('../../config/db.php');
+include('../config/db.php');
 // Obtener el ID del curso a eliminar
 $curso_id = $_GET["id"];
 
