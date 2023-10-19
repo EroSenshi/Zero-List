@@ -4,12 +4,12 @@
     <link rel="stylesheet" href="../styles/style.css">
     <meta charset="UTF-8">
     <title>Asistencia de Alumnos</title>
-    <style>
-       
-    </style>
+    <link rel="stylesheet" href="../style/lista.css">
 </head>
 <body>
-    <h1>Lista de Alumnos</h1>
+
+    <h1 class="titulo">Lista de Alumnos</h1>
+
    <?php
     include('../../config/db.php');
 
@@ -28,16 +28,22 @@ $result = $conn->query("SELECT usuarios.id, usuarios.nombre FROM usuarios JOIN c
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<form class='attendance-form' method='post'>";
-        echo "<input type='hidden' name='alumno_id' value='" . $row['id'] . "'>";
+        echo "<div class='student-info'>";
         echo "<p class='student-name'>Alumno: " . $row['nombre'] . "</p>";
+        echo "</div>";
+        echo "<div class='attendance-buttons'>";
+        echo "<input type='hidden' name='alumno_id' value='" . $row['id'] . "'>";
         echo "<button class='attendance-button present-button' type='submit' name='estado' value='presente'>Presente</button>";
-        echo "<button class='attendance-button absent-button' type='submit' name='estado' value='ausente'>Ausente</button>";
+        echo "<button class='attendance-button absent-button' type='submit' name 'estado' value='ausente'>Ausente</button>";
+        echo "</div>";
         echo "</form>";
+        
         
     }
 } else {
-    echo "No hay alumnos registrados.";
+    echo "<div class='error-message'>No hay alumnos registrados.</div>";
 }
 ?>
+
 </body>
 </html>
