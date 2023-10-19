@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["crear_curso"])) {
     // Conectar a la base de datos (reemplaza estos valores con los tuyos)
-     include('../../config/db.php');
+     include('../config/db.php');
     // Verificar la conexión a la base de datos
     if ($conn->connect_error) {
         die("Error en la conexión a la base de datos: " . $conn->connect_error);
