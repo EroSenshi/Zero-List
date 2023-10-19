@@ -25,49 +25,75 @@ nav a:hover {
     background-color: #0056b3;
 }
 
+.container {
+    max-width: 700px;
+    margin: 90px auto 0;
+    padding: 20px;
+    background: #243b55; /* Cambiado el fondo a azul oscuro */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
 /* Estilos para la carta */
 .carta {
     list-style-type: none;
-    margin: 10px;
-    padding: 0;
-    width: 400px;
+    margin: 10px; /* Puedes ajustar este margen según tus preferencias */
+    padding: 10px; /* Puedes ajustar este padding según tus preferencias */
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+    display: inline-block; /* Cambiado de 'flex' a 'inline-block' */
+    width: 200px; /* Ancho fijo para las tarjetas (ajusta según tus preferencias) */
+    margin-right: 10px; /* Espaciado horizontal entre tarjetas (ajusta según tus preferencias) */
+    margin-bottom: 10px;
+    justify-content: center; /* Centro verticalmente */
+    align-items: center; /* Centro verticalmente */ /* Espaciado vertical entre tarjetas (ajusta según tus preferencias) */
 }
 
+/* Estilos para dar una apariencia de carta */
+.carta {
+    background-color: #f5f5f5; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: center; /* Alineación de contenido al centro */
+}
+
+/* Estilos para el título de la tarjeta */
 .nombre-curso {
-    padding: 15px;
-    text-align: center;
     font-weight: bold;
     border-bottom: 1px solid #ccc;
+    padding: 15px;
+    margin: 0;
 }
 
+
+
+/* Estilos para los botones de la tarjeta */
 .botones {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Cambiado de 'row' a 'column' */
     align-items: center;
     padding: 15px;
 }
 
 .boton {
-    width: 100%;
+    width: 150px; /* Ancho de los botones */
     text-align: center;
     text-decoration: none;
     padding: 10px;
     background-color: #007bff;
     color: #fff;
     border-radius: 3px;
-    margin: 5px 0;
+    margin: 5px;
     transition: background-color 0.3s;
 }
 
 .boton:hover {
     background-color: #0056b3;
 }
+
 
 /* Estilos para el título */
 .titulo {
