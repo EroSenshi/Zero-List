@@ -1,5 +1,5 @@
 <?php
-include('../../config/db.php');
+include('../config/db.php');
 $nombre="";
 if (isset($_COOKIE["user_id"])) {
     $user_id = $_COOKIE["user_id"];
