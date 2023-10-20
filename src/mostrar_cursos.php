@@ -50,7 +50,7 @@ if (isset($_COOKIE["user_id"])) {
                 echo '<a href="update.php?id=' . $row['id'] . '" class="boton">Editar</a>';
                 echo '<a href="delete.php?id=' . $row['id'] . '" class="boton">Eliminar</a>';
                 echo '</div>';
-                echo '</div>';
+                echo '</div>';                
             }
         } else {
             echo "<p class='error-message'>No se encontraron cursos en la base de datos.</p>";
