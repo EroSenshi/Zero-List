@@ -46,17 +46,14 @@ $result = mysqli_query($conn, $sql);
 // Verifica si hay resultados
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        echo '<section class="container">';
-        echo '<form action="listas.php" method="post">';
-        echo '<div class="tarjeta">';
-        echo '<h3>' . $row['nombre_curso'] . '</h3>';
-        echo '<p>ID: ' . $row['id'] . '</p>';
-        echo '<input type="hidden" name="curso_id" value="' . $row['id'] . '">';
-        echo '<input id="ver" type="submit" value="Ver detalles">';
-        echo '<a href="delete_union.php?id=' . $row['id'] . '" class="boton">Salir del curso</a>';
-        echo '</div>';
-        echo '</form>';
-        echo '</section>';
+        $nombre_curso = $row['nombre_curso'];
+                echo '<div class="carta">';
+                echo '<div class="nombre-curso">' . $nombre_curso . '</div>';
+                echo '<div class="botones">';
+                echo '<a href="asistencia_alumno.php?id=' . $row['id'] . '" class="boton">Ver Asistencia</a>';
+                echo '<a href="delete_union.php?id=' . $row['id'] . '" class="boton">Salir del curso</a>';  
+                echo '</div>';
+                echo '</div>';
     }
 } else {
     echo "No se encontraron cursos para este usuario.";
