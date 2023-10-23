@@ -3,9 +3,6 @@ include('../config/db.php');
 $nombre="";
 if (isset($_COOKIE["user_id"])) {
     $user_id = $_COOKIE["user_id"];
-    
-    // No es necesario incluir la conexión nuevamente aquí, ya que se incluyó arriba
-
     // Realiza la consulta SQL para obtener el nombre del usuario
     $query = "SELECT nombre FROM usuarios WHERE id = $user_id";
     $result = $conn->query($query);
@@ -26,14 +23,14 @@ if (isset($_COOKIE["user_id"])) {
 <head>
     <meta charset="UTF-8">
     <title>Mostrar Cursos</title>
-    <link rel="stylesheet" href="../public/styles/cursols.css">
+    <link rel="stylesheet" href="../public/styles/cursoalum.css">
 </head>
 <body>
     <nav>
         <h2>Bienvenido <?php echo $nombre; ?></h2>
         <a href="lista_cursos.php">Ver Cursos</a>
     </nav>  
-    <h1 class="titulo">Lista de Cursos</h1>
+    <h1 class="titulo">Lista de Mis Cursos</h1>
     <div class="carta-container">
 <?php
 
@@ -51,7 +48,7 @@ if (mysqli_num_rows($result) > 0) {
                 echo '<div class="nombre-curso">' . $nombre_curso . '</div>';
                 echo '<div class="botones">';
                 echo '<a href="asistencia_alumno.php?id=' . $row['id'] . '" class="boton">Ver Asistencia</a>';
-                echo '<a href="delete_union.php?id=' . $row['id'] . '" class="boton">Salir del curso</a>';  
+                echo '<a href="delete_union.php?id=' . $row['id'] . '" class="boton-delete">Salir del curso</a>';  
                 echo '</div>';
                 echo '</div>';
     }
