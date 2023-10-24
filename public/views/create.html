@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="create.css">
+    <title>Generar Curso</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="">
+        <nav class="navigation">
+            <button class="curso-boton">Panel de Curso</button>
+        </nav>
+    </header>
+
+    <div class="box">
+        <h2>Generar Nuevo Curso</h2>
+        <form method="POST" action="../../src/crear_curso.php">
+            <div class="curso-box"><input type="text" name="nombre_curso" id="nombre_curso" required="">
+            <label for="nombre_curso">Nombre del Curso</label>
+            <br>
+            <input type="hidden" name="crear_curso" value="1">
+            </div>
+            <input class="boton" type="submit" value="Generar Curso">  
+        </form>
+    </div>
+</body>
+</html>
