@@ -46,8 +46,6 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
         
  <div class="container">
         <?php
-        $filtro_fecha = $_POST['fecha'] ?? '';
-        $filtro_estado = $_POST['estado'] ?? '';
 
         // Realiza la consulta SQL con el filtro
         $sql = "SELECT usuarios.nombre, asistencia.fecha_hora, asistencia.estado FROM cursos_alumnos
@@ -64,7 +62,7 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
                 $fecha_hora = $row['fecha_hora'];
                 $estado = $row['estado'];
 
-                echo "<li>Nombre: $nombre<br>Fecha y Hora: $fecha_hora<br>Estado: $estado</li>";
+                echo "<li> $nombre - $fecha_hora - $estado</li>";
             }
             echo "</ul>";
         } else {
