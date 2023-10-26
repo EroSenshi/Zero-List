@@ -31,7 +31,7 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
 <head>
     <meta charset="UTF-8">
     <title>Lista de Alumnos</title>
-    <link rel="stylesheet" href="../../public/styles/">
+    <link rel="stylesheet" href="../styles/asistencia.css">
 </head>
 <body>
 <nav>
