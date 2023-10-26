@@ -45,22 +45,11 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
         <div class="container">
         <?php
 
-        $filtro_fecha = $_POST['fecha'] ?? '';
-        $filtro_estado = $_POST['estado'] ?? '';
-
         // Realiza la consulta SQL con el filtro
         $sql = "SELECT usuarios.nombre, asistencia.fecha_hora, asistencia.estado FROM cursos_alumnos
                 INNER JOIN usuarios ON cursos_alumnos.id_alumno = usuarios.id
                 LEFT JOIN asistencia ON cursos_alumnos.id_alumno = asistencia.alumno_id
                 WHERE cursos_alumnos.id_curso = $curso_id AND cursos_alumnos.id_alumno = $user_id";
-
-        if (!empty($filtro_fecha)) {
-            $sql .= " AND DATE(asistencia.fecha_hora) = '$filtro_fecha'";
-        }
-
-        if (!empty($filtro_estado)) {
-            $sql .= " AND asistencia.estado = '$filtro_estado'";
-        }
 
         $result = $conn->query($sql);
 
@@ -71,7 +60,7 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
                 $fecha_hora = $row['fecha_hora'];
                 $estado = $row['estado'];
 
-                echo "<li>Nombre: $nombre<br>Fecha y Hora: $fecha_hora<br>Estado: $estado</li>";
+                echo "<li> $nombre - $fecha_hora - $estado</li>";
             }
             echo "</ul>";
         } else {
