@@ -3,5 +3,5 @@ CREATE TABLE asistencia (
     alumno_id INT,
     fecha_hora DATETIME,
     estado VARCHAR(255),
-    alumno_id INT
+    curso_id INT
 );
