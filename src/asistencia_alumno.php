@@ -31,26 +31,45 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
 <head>
     <meta charset="UTF-8">
     <title>Lista de Alumnos</title>
-    <link rel="stylesheet" href="../../public/styles/asistencia_alumno.css">
+    <link rel="stylesheet" href="../../public/styles/asistencia.css">
 </head>
 <body>
 <nav>
-    <h2>Bienvenido <?php echo $nombre; ?></h2>
-    <div>
-        <a href="mostrar_cursos.php">Mis cursos</a>
-    </div>
-</nav>  
+        <h2>Bienvenido <?php echo $nombre; ?></h2>
+        <a href="cursos_alumnos.php">Mis cursos</a>
+    </nav>  
     <h1>Asistencia de alumnos</h1>
-       
-        <div class="container">
+    <div class="container">
+        <form method="post">
+            <label for="fecha">Filtrar por fecha:</label>
+            <input type="date" name="fecha" id="fecha">
+            <label for="estado">Filtrar por estado:</label>
+            <select name="estado" id="estado">
+                <option value="">Todos</option>
+                <option value="Presente">Presente</option>
+                <option value="Ausente">Ausente</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+
         <?php
 
+        $filtro_fecha = $_POST['fecha'] ?? '';
+        $filtro_estado = $_POST['estado'] ?? '';
+
         // Realiza la consulta SQL con el filtro
-        $sql = "SELECT usuarios.nombre, asistencia.fecha_hora, asistencia.estado 
-        FROM cursos_alumnos
-        INNER JOIN usuarios ON cursos_alumnos.id_alumno = usuarios.id
-        LEFT JOIN asistencia ON cursos_alumnos.id_alumno = asistencia.alumno_id
-        WHERE asistencia.curso_id = $curso_id AND asistencia.alumno_id = $user_id AND cursos_alumnos.id_curso = $curso_id";
+        $sql = "SELECT usuarios.nombre, asistencia.fecha_hora, asistencia.estado FROM cursos_alumnos
+                INNER JOIN usuarios ON cursos_alumnos.id_alumno = usuarios.id
+                LEFT JOIN asistencia ON cursos_alumnos.id_alumno = asistencia.alumno_id
+                WHERE cursos_alumnos.id_curso = $curso_id AND cursos_alumnos.id_alumno = $user_id";
+
+        if (!empty($filtro_fecha)) {
+            $sql .= " AND DATE(asistencia.fecha_hora) = '$filtro_fecha'";
+        }
+
+        if (!empty($filtro_estado)) {
+            $sql .= " AND asistencia.estado = '$filtro_estado'";
+        }
 
         $result = $conn->query($sql);
 
@@ -61,7 +80,7 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
                 $fecha_hora = $row['fecha_hora'];
                 $estado = $row['estado'];
 
-                echo "<li> $nombre - $fecha_hora - $estado</li>";
+                echo "<li>Nombre: $nombre<br>Fecha y Hora: $fecha_hora<br>Estado: $estado</li>";
             }
             echo "</ul>";
         } else {
