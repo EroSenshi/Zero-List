@@ -46,10 +46,11 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
         <?php
 
         // Realiza la consulta SQL con el filtro
-        $sql = "SELECT usuarios.nombre, asistencia.fecha_hora, asistencia.estado FROM cursos_alumnos
-                INNER JOIN usuarios ON cursos_alumnos.id_alumno = usuarios.id
-                LEFT JOIN asistencia ON cursos_alumnos.id_alumno = asistencia.alumno_id
-                WHERE cursos_alumnos.id_curso = $curso_id AND cursos_alumnos.id_alumno = $user_id";
+        $sql = "SELECT usuarios.nombre, asistencia.fecha_hora, asistencia.estado 
+        FROM cursos_alumnos
+        INNER JOIN usuarios ON cursos_alumnos.id_alumno = usuarios.id
+        LEFT JOIN asistencia ON cursos_alumnos.id_alumno = asistencia.alumno_id
+        WHERE asistencia.curso_id = $curso_id AND asistencia.alumno_id = $user_id AND cursos_alumnos.id_curso = $curso_id";
 
         $result = $conn->query($sql);
 
