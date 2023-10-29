@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 }
 $curso_id = $_GET['id'];
-$result = $conn->query("SELECT usuarios.id, usuarios.nombre FROM usuarios JOIN cursos_alumnos ON usuarios.id = cursos_alumnos.id_alumno WHERE cursos_alumnos.id_curso = $curso_id");
+$result = $conn->query("SELECT alumnos.id_user, alumnos.nombre FROM alumnos JOIN cursos_alumnos ON alumnos.id_user = cursos_alumnos.id_alumno WHERE cursos_alumnos.id_curso = $curso_id");
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
