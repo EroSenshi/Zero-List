@@ -35,10 +35,11 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
 </head>
 <body>
 <nav>
-        <h2>Bienvenido <?php echo $nombre; ?></h2>
-        <a href="cursos_alumnos.php">Mis cursos</a>
-    </nav>  
+    <img src="../../public/Assets/image.ico" alt="Logo">
     <h1>Asistencia de alumnos</h1>
+    <a href="cursos_alumnos.php">Mis cursos</a>
+</nav>  
+    
     <div class="container">
         <form method="post">
             <label for="fecha">Filtrar por fecha:</label>
@@ -58,7 +59,7 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
         $filtro_estado = $_POST['estado'] ?? '';
 
         // Realiza la consulta SQL con el filtro
-         $sql = "SELECT alumnos.nombre, asistencia.fecha_hora, asistencia.estado 
+        $sql = "SELECT alumnos.nombre, asistencia.fecha_hora, asistencia.estado 
         FROM cursos_alumnos
         INNER JOIN alumnos ON cursos_alumnos.id_alumno = alumnos.id_user
         LEFT JOIN asistencia ON cursos_alumnos.id_alumno = asistencia.alumno_id
@@ -81,11 +82,11 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
                 $fecha_hora = $row['fecha_hora'];
                 $estado = $row['estado'];
 
-                echo "<li>Nombre: $nombre<br>Fecha y Hora: $fecha_hora<br>Estado: $estado</li>";
+                echo "<li> $nombre - $fecha_hora - $estado</li>";
             }
             echo "</ul>";
         } else {
-            echo "<p class='no-data'>No se encontraron alumnos con los criterios de filtro seleccionados.</p>";
+            echo "<p class='no-data'>No se encontraron alumnos </p>";
         }
 
         // Cerrar la conexión a la base de datos
@@ -94,5 +95,3 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
     </div>
 </body>
 </html>
-
-

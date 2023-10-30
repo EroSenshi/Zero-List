@@ -35,13 +35,16 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
 </head>
 <body>
 <nav>
-        <h2>Bienvenido <?php echo $nombre; ?></h2>
-        <?php echo '<a href="lista_alumnos.php?id=' . $curso_id . '" class="boton">Tomar Asistencias</a>'; ?>
-        <a href="mostrar_cursos.php">Mis cursos</a>
-    </nav>  
+    <img src="../../public/Assets/image.ico" alt="Logo">
     <h1>Asistencia de alumnos</h1>
-    <div class="container">
-        <form method="post">
+    <div>
+        <a href="lista_alumnos.php?id=<?php echo $curso_id; ?>" class="boton">Tomar Asistencias</a>
+        <a href="mostrar_cursos.php">Mis cursos</a>
+    </div>
+</nav>
+
+   <div class="container">
+    <form method="post">
             <label for="fecha">Filtrar por fecha:</label>
             <input type="date" name="fecha" id="fecha">
             <label for="estado">Filtrar por estado:</label>
@@ -52,17 +55,22 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
             </select>
             <button type="submit">Filtrar</button>
         </form>
-
+   </div>
+        
+ <div class="container">
         <?php
 
         $filtro_fecha = $_POST['fecha'] ?? '';
         $filtro_estado = $_POST['estado'] ?? '';
 
         // Realiza la consulta SQL con el filtro
-        $sql = "SELECT usuarios.nombre, asistencia.fecha_hora, asistencia.estado FROM cursos_alumnos
-                INNER JOIN usuarios ON cursos_alumnos.id_alumno = usuarios.id
-                LEFT JOIN asistencia ON cursos_alumnos.id_alumno = asistencia.alumno_id
-                WHERE cursos_alumnos.id_curso = $curso_id";
+        $sql = "SELECT alumnos.nombre, asistencia.alumno_id, asistencia.fecha_hora, asistencia.estado 
+        FROM asistencia 
+        LEFT JOIN alumnos ON asistencia.alumno_id = alumnos.id_user 
+        LEFT JOIN cursos_alumnos ON asistencia.curso_id = cursos_alumnos.id_curso
+        WHERE asistencia.curso_id = $curso_id";
+
+        
 
         if (!empty($filtro_fecha)) {
             $sql .= " AND DATE(asistencia.fecha_hora) = '$filtro_fecha'";
