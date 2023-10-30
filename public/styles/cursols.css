@@ -1,4 +1,11 @@
 /* Estilos para el encabezado dentro de la etiqueta nav */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -6,10 +13,6 @@ nav {
     background-color: #007bff;
     color: #fff;
     padding: 10px;
-}
-
-nav h2 {
-    margin: 0;
 }
 
 nav a {
@@ -25,6 +28,21 @@ nav a:hover {
     background-color: #0056b3;
 }
 
+nav img {
+    max-height: 40px; /* Ajusta la altura máxima de la imagen según tus preferencias */
+    margin-right: 10px; /* Agrega margen derecho para separar la imagen de los botones */
+    padding-left: 25px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 90px auto 0;
+    padding: 20px;
+    background: #243b55; /* Cambiado el fondo a azul oscuro */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
 /* Estilos para la carta */
 .carta {
     list-style-type: none;
@@ -89,9 +107,7 @@ nav a:hover {
 /* Estilos para el título */
 .titulo {
     text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-top: 20px;
+    color: #f0f8ff;
 }
 
 /* Estilos para el mensaje de error */
@@ -102,11 +118,4 @@ nav a:hover {
     border: 1px solid #ff9999;
     border-radius: 5px;
     text-align: center;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Centra verticalmente en la ventana */
 }

@@ -1,19 +1,68 @@
 /* Estilos para el formulario de asistencia */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+}
+
+nav img {
+    max-height: 40px; /* Ajusta la altura máxima de la imagen según tus preferencias */
+    margin-right: 10px; /* Agrega margen derecho para separar la imagen de los botones */
+    padding-left: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #003bff;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+}
+
+
+nav h2 {
+    margin: 0;
+    flex-grow: 1; /* Esto permite que el título ocupe el espacio restante */
+}
+
+
 .attendance-form {
     margin: 10px;
-    padding: 10px;
+    padding: 5px; /* Reducir el relleno del formulario */
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
-    display: flex; /* Aplicado al formulario */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between; /* Alinear elementos en el formulario */
 }
 
 /* Estilos para la información del estudiante (izquierda) */
 .student-info {
     flex: 1;
     padding: 10px;
-    text-align: left; /* Aplicado a la sección de información del estudiante */
+    text-align: left;
 }
+
 
 /* Estilos para los botones de asistencia (derecha) */
 .attendance-buttons {
@@ -21,7 +70,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* Aplicado a la sección de botones de asistencia */
+    margin-right: 10px; /* Agregar margen derecho a los botones */
 }
 
 /* Estilos para el nombre del estudiante */
@@ -32,7 +81,7 @@
 
 /* Estilos para los botones de asistencia (Presente/Ausente) */
 .attendance-button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 3px;
     color: #fff;
