@@ -8,15 +8,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
     $confirmar_password = $_POST["confirmar_password"];
 
-    // Verificar si el nombre de usuario ya existe en la base de datos
-    $sql = "SELECT id FROM usuarios WHERE nombreusuario = '$nombreusuario'";
-    $result = $conn->query($sql);
+    $errores = array(); // Crear un array para almacenar los errores
 
-    if ($result->num_rows > 0) {
-        echo "El nombre de usuario ya existe. Por favor, elige otro.";
-    } elseif ($password !== $confirmar_password) {
-        echo "Las contraseñas no coinciden. Inténtalo de nuevo.";
-    } else {
+    // Validar el nombre de usuario
+    if (empty($nombreusuario)) {
+        $errores[] = "El nombre de usuario es obligatorio.";
+    }
+
+    // Validar el nombre
+    if (empty($nombre)) {
+        $errores[] = "El nombre es obligatorio.";
+    }
+
+    // Validar el tipo de usuario
+    if (empty($tipo_usuario)) {
+        $errores[] = "El tipo de usuario es obligatorio.";
+    }
+
+    // Validar la contraseña
+    if (strlen($password) < 8 || !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/", $password)) {
+        $errores[] = "La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula, una letra minúscula y un símbolo.";
+    }
+
+    // Verificar si las contraseñas coinciden
+    if ($password !== $confirmar_password) {
+        $errores[] = "Las contraseñas no coinciden. Inténtalo de nuevo.";
+    }
+
+    // Verificar si hay errores
+    if (empty($errores)) {
         // Hash de la contraseña para mayor seguridad (puedes utilizar una función de hashing más segura)
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -29,7 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Error al registrar el usuario: " . $conn->error;
         }
+    } else {
+        // Mostrar los errores al usuario
+        foreach ($errores as $error) {
+            echo $error . "<br>";
+        }
     }
 }
-
 ?>
