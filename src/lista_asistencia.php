@@ -66,7 +66,7 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
         // Realiza la consulta SQL con el filtro
         $sql = "SELECT alumnos.nombre, asistencia.alumno_id, asistencia.fecha_hora, asistencia.estado 
         FROM asistencia 
-        LEFT JOIN alumnos ON asistencia.alumno_id = alumnos.id_user 
+        LEFT JOIN alumnos ON asistencia.alumno_id = alumnos.user_id 
         LEFT JOIN cursos_alumnos ON asistencia.curso_id = cursos_alumnos.id_curso
         WHERE asistencia.curso_id = $curso_id";
 
