@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["crear_curso"])) {
 
     if ($conn->query($sql) === TRUE) {
         echo "Curso creado con éxito.";
-        header("Location: panel_cursos.php");
+        header("Location: mostrar_cursos.php");
         exit();
     } else {
         echo "Error al crear el curso: " . $conn->error;
