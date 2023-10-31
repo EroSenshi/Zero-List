@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 }
 $curso_id = $_GET['id'];
-$result = $conn->query("SELECT alumnos.id_user, alumnos.nombre FROM alumnos JOIN cursos_alumnos ON alumnos.id_user = cursos_alumnos.id_alumno WHERE cursos_alumnos.id_curso = $curso_id");
+$result = $conn->query("SELECT alumnos.user_id, alumnos.nombre FROM alumnos JOIN cursos_alumnos ON alumnos.user_id = cursos_alumnos.id_alumno WHERE cursos_alumnos.id_curso = $curso_id");
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
@@ -64,7 +64,7 @@ if ($result->num_rows > 0) {
         echo "<p class='student-name'>Alumno: " . $row['nombre'] . "</p>";
         echo "</div>";
         echo "<div class='attendance-buttons'>";
-        echo "<input type='hidden' name='alumno_id' value='" . $row['id'] . "'>";
+        echo "<input type='hidden' name='alumno_id' value='" . $row['user_id'] . "'>";
         echo "<button class='attendance-button present-button' type='submit' name='estado' value='presente'>Presente</button>";
         echo "<button class='attendance-button absent-button' type='submit' name='estado' value='ausente'>Ausente</button>";
         echo "</div>";
