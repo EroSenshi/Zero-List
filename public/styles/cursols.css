@@ -119,3 +119,33 @@ nav img {
     border-radius: 5px;
     text-align: center;
 }
+
+/* Estilos para los enlaces "delete" y "edit" */
+.delete,
+.edit {
+    display: inline-block;
+    width: 50%; /* Ancho 50% para que estén uno al lado del otro */
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.delete {
+    background-color: #ff0000; /* Fondo rojo para "delete" */
+    color: #fff; /* Texto blanco */
+    float: left;
+}
+
+.edit {
+    background-color: #008000; /* Fondo verde para "edit" */
+    color: #fff; /* Texto blanco */
+    float: right;
+}
+
+/* Cambiar el color de fondo en hover de "edit" a verde claro */
+.edit:hover {
+    background-color: #5aff5a;
+}
