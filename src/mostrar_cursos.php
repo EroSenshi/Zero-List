@@ -29,6 +29,7 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
     <meta charset="UTF-8">
     <title>Mostrar Cursos</title>
     <link rel="stylesheet" href="../../public/styles/cursols.css">
+    <script src="https://kit.fontawesome.com/a3e9392e36.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
@@ -51,8 +52,8 @@ if (isset($_COOKIE["user_id"]) && !empty($_COOKIE["user_id"])) {
                 echo '<div class="botones">';
                 echo '<a href="lista_alumnos.php?id=' . $row['id'] . '" class="boton">Tomar Asistencias</a>';
                 echo '<a href="lista_asistencia.php?id=' . $row['id'] . '" class="boton">Ver Asistencias</a>';
-                echo '<a href="../update.php?id=' . $row['id'] . '" class="boton">Editar</a>';
-                echo '<a href="../delete.php?id=' . $row['id'] . '" class="boton">Eliminar</a>';
+                echo '<a href="../update.php?id=' . $row['id'] . '" class="edit"><i class="fa-solid fa-pen-to-square"></i></a>';
+                echo '<a href="../delete.php?id=' . $row['id'] . '" class="delete"><i class="fa-solid fa-trash-can"></i></a>';
                 echo '</div>';
                 echo '</div>';
             }
